@@ -1,0 +1,178 @@
+.scrollToTop--btn {
+  @include flexCenter;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  font-size: 2rem;
+  border-radius: 0.1em;
+  color: $clr--dark;
+  background-color: darken($color: $clr--bg--gray, $amount: 6%);
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  z-index: 5;
+  cursor: pointer;
+  transition: 0.3s ease;
+  &:is(:hover, :focus) {
+    color: $clr--light;
+    background-color: $clr--dark;
+  }
+  @include bp("min", 2000px) {
+    width: 5rem;
+    font-size: 2.5rem;
+  }
+  @include md {
+    right: 20px;
+    bottom: 30px;
+  }
+  @include sm {
+    right: 20px;
+    bottom: 30px;
+  }
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba($color: $clr--gray, $alpha: 0.3);
+  @include md {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+  &--options {
+    display: flex;
+    align-items: center;
+    color: $clr--text--dark;
+    gap: 2rem;
+  }
+  &--options--title {
+    font-size: calc($fs--sm - 0.2rem);
+    font-weight: normal;
+    padding-left: 1rem;
+  }
+  &--options--btn {
+    display: flex;
+    align-items: center;
+    font-size: calc($fs--sm - 0.3rem);
+    padding: 0.5em 1em;
+    border: 1px solid rgba($color: $clr--gray, $alpha: 0.4);
+    border-radius: 3em;
+    cursor: pointer;
+    transition: 0.3s;
+    &:is(:hover, :focus) {
+      border-radius: 0.2em;
+      > svg {
+        fill: $clr--primary;
+      }
+    }
+    > span {
+      padding-left: 2rem;
+    }
+    > svg {
+      transition: 0.3s;
+    }
+  }
+  &--dots--btn {
+    @include flexCenter;
+    width: 3rem;
+    aspect-ratio: 1;
+    background-color: $clr--primary;
+    color: $clr--light;
+    font-size: calc($fs--sm - 0.2rem);
+    transition: 0.125s;
+    &:is(:hover, :focus) {
+      border-radius: 50%;
+    }
+  }
+  &--center {
+    @include row;
+  }
+}
+
+.shareSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.8rem;
+  border-block: 1px dotted rgba($color: $clr--gray, $alpha: 0.5);
+  &--more {
+    font-size: calc($fs--sm - 0.4rem);
+    font-weight: bold;
+    transition: 0.4s;
+    border-right: 3px solid $clr--primary;
+    border-color: transparent;
+    &:hover {
+      border-color: $clr--primary;
+      padding-right: 1em;
+    }
+  }
+}
+
+.shareSocialMedia {
+  position: relative;
+  &:is(:hover, :focus) .shareSocialMedia--btn {
+    visibility: hidden;
+    opacity: 0;
+  }
+  &:is(:hover, :focus) .shareSocialMedia--socialLink {
+    rotate: 0deg;
+    opacity: 1 !important;
+    visibility: visible;
+    &:not(:last-child) {
+      margin-left: 0.5em;
+    }
+  }
+  &--btn {
+    color: $clr--text--dark;
+    background-color: $clr--bg--gray;
+    font-size: calc($fs--sm - 0.4rem);
+    font-weight: bold;
+    padding: 1em 2em;
+    border-radius: 2.5em;
+    transition: 0.3s ease;
+  }
+  &--socialList {
+    display: flex;
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+  }
+  &--socialLink {
+    @include flexCenter;
+    font-size: calc($fs--sm - 0.3rem);
+    rotate: -180deg;
+    opacity: 0 !important;
+    visibility: hidden;
+    transition: all 0.3s ease, box-shadow 0.150s;
+    color: #fff;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-left: -1.5em;
+    }
+    &:nth-child(1) {
+      background-color: #3c599f;
+    }
+    &:nth-child(2) {
+      background-color: #0085ae;
+    }
+    &:nth-child(3) {
+      background-color: #e1003a;
+    }
+    &:nth-child(4) {
+      background-color: #000;
+    }
+    &:hover {
+      box-shadow: $clr--dark 0px 1px 4px;
+    }
+  }
+}
+
+.searchSection {
+  background-color: #eee;
+}
