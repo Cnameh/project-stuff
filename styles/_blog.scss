@@ -12,6 +12,9 @@
     grid-area: content;
     position: relative;
     isolation: isolate;
+    @include bp("max", 900px) {
+      grid-template-columns: 1fr;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -22,6 +25,9 @@
       background-color: #f4f4f4;
       opacity: 1;
       z-index: -1;
+      @include bp("max", 900px) {
+        display: none;
+      }
     }
   }
   &--list {
@@ -31,6 +37,15 @@
   &--list--item {
     display: flex;
     gap: 3rem;
+    @include md {
+      flex-direction: column;
+    }
+    @include sm {
+      flex-direction: column;
+    }
+    &:nth-child(odd) .blog--list--item--tag {
+      background-color: #e4985b;
+    }
   }
   &--list--item--context {
     color: $clr--text--dark;
@@ -53,6 +68,9 @@
     font-weight: bold;
     width: max-content;
     display: block;
+    @include bp("max", 350px) {
+      font-size: $fs--sm;
+    }
   }
   &--list--item--info {
     display: flex;
@@ -73,6 +91,12 @@
   &--list--item--content {
     width: 40%;
     position: relative;
+    @include md {
+      width: 100%;
+    }
+    @include sm {
+      width: 100%;
+    }
   }
   &--list--item--img {
     width: 100%;
@@ -87,6 +111,7 @@
     padding: 2.5em;
     border-radius: 0.2em;
     position: relative;
+    isolation: isolate;
     > p {
       line-height: 2.8em;
       text-decoration: 1px underline $clr--dark;
@@ -105,7 +130,39 @@
     font-size: 3em;
     top: 0;
     right: 0;
-    margin-top: 0.5em;
-    margin-right: 0.5em;
+    margin-top: 3rem;
+    margin-right: 3rem;
+    z-index: -1;
+  }
+  &--list--pagination--container {
+    display: grid;
+    place-items: center;
+    margin-top: 1rem;
+  }
+  &--list--pagination {
+    display: flex;
+    align-items: center;
+    font-size: calc($fs--sm - 0.2rem);
+    border: 1px solid rgba($color: $clr--gray, $alpha: 0.3);
+    border-radius: 0.1em;
+    a:hover {
+      color: $clr--primary;
+    }
+  }
+  &--list--pagination--prevNext {
+    display: inline-block;
+    color: $clr--text--dark;
+    padding-inline: 1em;
+    transition: 0.3s;
+  }
+  &--list--pagination--number {
+    display: inline-block;
+    color: $clr--text--dark;
+    padding: 0.5em 1em;
+    transition: 0.3s;
+    &--active {
+      background-color: $clr--bg--dark;
+      color: $clr--text--light;
+    }
   }
 }
