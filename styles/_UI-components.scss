@@ -34,8 +34,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2.5rem 0;
-  border-bottom: 1px solid rgba($color: $clr--gray, $alpha: 0.3);
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px dotted rgba($color: $clr--gray, $alpha: 0.4);
   @include md {
     display: none;
   }
@@ -97,7 +97,7 @@
   justify-content: space-between;
   align-items: center;
   padding-block: 0.8rem;
-  border-block: 1px dotted rgba($color: $clr--gray, $alpha: 0.5);
+  border-block: 1px dotted rgba($color: $clr--gray, $alpha: 0.4);
   &--more {
     font-size: calc($fs--sm - 0.4rem);
     font-weight: bold;
@@ -147,7 +147,7 @@
     opacity: 0 !important;
     visibility: hidden;
     transition: all 0.3s ease, box-shadow 0.15s;
-    color: #fff;
+    color: $clr--bg--light;
     width: 3.5rem;
     aspect-ratio: 1;
     border-radius: 50%;
@@ -156,16 +156,16 @@
       margin-left: -1.5em;
     }
     &:nth-child(1) {
-      background-color: #3c599f;
+      background-color: $clr--facebook;
     }
     &:nth-child(2) {
-      background-color: #0085ae;
+      background-color: $clr--linkedIn;
     }
     &:nth-child(3) {
-      background-color: #e1003a;
+      background-color: $clr--pinterest;
     }
     &:nth-child(4) {
-      background-color: #000;
+      background-color: $clr--twitter;
     }
     &:hover {
       box-shadow: $clr--dark 0px 1px 4px;
@@ -173,10 +173,10 @@
   }
 }
 
-.searchBar {
+.searchBlock {
   background-color: #f4f4f4;
   color: $clr--text--dark;
-  padding-top: 5rem;
+  padding-block: 5rem;
   padding-right: 3rem;
   @include bp("max", 900px) {
     padding: 5rem 3rem;
@@ -185,7 +185,7 @@
     padding: 5rem 3rem;
   }
   @include sm {
-    padding: 5rem 3rem;
+    padding: 5rem 2rem;
   }
   &--search--title {
     font-size: $fs--sm;
@@ -318,13 +318,13 @@
     border-radius: 0.1em;
     transition: 0.25s;
     &:nth-child(1) {
-      background-color: hsl(0, 0%, 5%);
+      background-color: $clr--twitter;
     }
     &:nth-child(2) {
-      background-color: #ec282a;
+      background-color: $clr--youtube;
     }
     &:nth-child(3) {
-      background-color: #3c599f;
+      background-color: $clr--facebook;
     }
   }
 }
@@ -360,5 +360,104 @@
     background-color: $clr--bg--dark;
     cursor: pointer;
     z-index: -1;
+  }
+}
+
+.stickySocialMedia {
+  display: grid;
+  gap: 0.5rem;
+  width: max-content;
+  font-size: calc($fs--sm + 0.2rem);
+  margin-right: -5em;
+  position: sticky;
+  top: 8rem;
+  height: max-content;
+  @include bp("max", 900px) {
+    display: none;
+  }
+
+  &--link {
+    @include gridCenter;
+    border: 1px solid rgba($color: $clr--gray, $alpha: 0.4);
+    border-radius: 0.1em;
+    padding: 0.5em 1.3em;
+  }
+
+  &--link--facebook {
+    color: $clr--facebook;
+    transition: 0.3s;
+    &:hover {
+      background: $clr--facebook;
+      color: $clr--text--light;
+    }
+  }
+
+  &--link--twitter {
+    color: $clr--twitter;
+    transition: 0.3s;
+    &:hover {
+      background: $clr--twitter;
+      color: $clr--text--light;
+    }
+  }
+
+  &--link--linkedIn {
+    color: $clr--linkedIn;
+    transition: 0.3s;
+    &:hover {
+      background: $clr--linkedIn;
+      color: $clr--text--light;
+    }
+  }
+}
+
+.itemNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px dotted rgba($color: $clr--gray, $alpha: 0.4);
+  @include md {
+    display: none;
+  }
+  @include sm {
+    display: none;
+  }
+  &--prevNextBtn--container {
+    display: flex;
+    gap: 1rem;
+  }
+  &--prevBtn {
+    @include size(4.2rem);
+    @include gridCenter;
+    border: 1px solid rgba($color: $clr--gray, $alpha: 0.4);
+    font-size: calc($fs--sm + 0.2rem);
+    border-radius: 0.1em;
+    cursor: pointer;
+    color: rgba($color: $clr--text--dark, $alpha: 0.6);
+  }
+  &--nextBtn {
+    @include size(4.2rem);
+    @include gridCenter;
+    border: 1px solid rgba($color: $clr--gray, $alpha: 0.4);
+    font-size: calc($fs--sm + 0.2rem);
+    border-radius: 0.1em;
+    cursor: pointer;
+    color: rgba($color: $clr--text--dark, $alpha: 0.6);
+  }
+  &--dots--btn {
+    @include flexCenter;
+    width: 3rem;
+    aspect-ratio: 1;
+    background-color: $clr--primary;
+    color: $clr--light;
+    font-size: calc($fs--sm - 0.2rem);
+    transition: 0.125s;
+    &:is(:hover, :focus) {
+      border-radius: 50%;
+    }
+  }
+  &--center {
+    @include row;
   }
 }
