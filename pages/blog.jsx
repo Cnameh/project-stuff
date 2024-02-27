@@ -4,8 +4,8 @@ import Layout from "../layout";
 
 // components
 import FilterBar from "../../components/UI/FilterBar";
-import SearchBar from "../../components/UI/SearchBar";
 import ShareSection from "../../components/UI/ShareSection";
+import SearchBlock from "../../components/UI/SearchBlock";
 import FavoriteItem from "../../components/UI/FavoriteItem";
 
 // icons
@@ -180,7 +180,7 @@ const BlogPage = () => {
                 </ol>
               </nav>
             </ul>
-            <SearchBar />
+            <SearchBlock />
           </div>
         </main>
       </Layout>

@@ -9,10 +9,8 @@ import ShareSocialMedia from "../../components/UI/ShareSocialMedia";
 import Input from "../../components/UI/Input";
 
 // icons
-import { FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa";
 import { MdFavoriteBorder } from "react-icons/md";
+import StickySocialMedia from "../../components/UI/StickySocialMedia";
 
 const SingleBlogPage = () => {
   return (
@@ -25,23 +23,7 @@ const SingleBlogPage = () => {
           <ItemNavigation centered />
           <div className="singleBlog--content">
             <div className="singleBlog--about">
-              <ul className="stickySocialMedia">
-                <li>
-                  <a className="stickySocialMedia--link stickySocialMedia--link--facebook" href="#">
-                    <FaFacebookF />
-                  </a>
-                </li>
-                <li>
-                  <a className="stickySocialMedia--link stickySocialMedia--link--twitter" href="#">
-                    <FaXTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a className="stickySocialMedia--link stickySocialMedia--link--linkedIn" href="#">
-                    <FaLinkedinIn />
-                  </a>
-                </li>
-              </ul>
+              <StickySocialMedia rightDirection />
               <section className="singleBlog--item">
                 <div className="singleBlog--item--context">
                   <button className="singleBlog--item--name">تکنولوژی</button>
@@ -150,19 +132,24 @@ const SingleBlogPage = () => {
                 <div className="singleBlog--respond">
                   <h3 className="singleBlog--respond--title">نظرتان را با ما به اشتراک بگذارید</h3>
                   <form className="singleBlog--respond--form">
-                    <Input
-                      label="نام و نام خانوادگی"
-                      type="text"
-                      className="singleBlog--respond--name"
-                    />
-                    <Input label="ایمیل" type="text" className="singleBlog--respond--email" />
-                    <Input label="وبسایت" type="text" className="singleBlog--respond--website" />
-                    <Input
-                      textarea
-                      label="پیام"
-                      type="text"
-                      className="singleBlog--respond--comment"
-                    />
+                    <div className="singleBlog--respond--inputs--container">
+                      <Input
+                        label="نام و نام خانوادگی"
+                        type="text"
+                        className="singleBlog--respond--name"
+                      />
+                      <Input label="ایمیل" type="text" className="singleBlog--respond--email" />
+                      <Input label="وبسایت" type="text" className="singleBlog--respond--website" />
+                      <Input
+                        textarea
+                        label="پیام"
+                        type="text"
+                        className="singleBlog--respond--comment"
+                      />
+                    </div>
+                    <button className="singleBlog--respond--btn" type="button">
+                      ارسال
+                    </button>
                   </form>
                 </div>
               </section>

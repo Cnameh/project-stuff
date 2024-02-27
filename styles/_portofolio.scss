@@ -2,65 +2,6 @@
   @include row(160rem);
 }
 
-.filterBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.5rem 0;
-  border-bottom: 1px solid rgba($color: $clr--gray, $alpha: 0.3);
-  @include md {
-    display: none;
-  }
-  @include sm {
-    display: none;
-  }
-  &--options {
-    display: flex;
-    align-items: center;
-    color: $clr--text--dark;
-    gap: 2rem;
-  }
-  &--options--title {
-    font-size: calc($fs--sm - 0.2rem);
-    font-weight: normal;
-    padding-left: 1rem;
-  }
-  &--options--btn {
-    display: flex;
-    align-items: center;
-    font-size: calc($fs--sm - 0.3rem);
-    padding: 0.5em 1em;
-    border: 1px solid rgba($color: $clr--gray, $alpha: 0.4);
-    border-radius: 3em;
-    cursor: pointer;
-    transition: 0.3s;
-    &:hover {
-      border-radius: 0.2em;
-      > svg {
-        fill: $clr--primary;
-      }
-    }
-    > span {
-      padding-left: 2rem;
-    }
-    > svg {
-      transition: 0.3s;
-    }
-  }
-  &--dots--btn {
-    @include flexCenter;
-    width: 3rem;
-    aspect-ratio: 1;
-    background-color: $clr--primary;
-    color: $clr--light;
-    font-size: calc($fs--sm - 0.2rem);
-    transition: 0.125s;
-    &:hover {
-      border-radius: 50%;
-    }
-  }
-}
-
 .filterList {
   display: flex;
   margin: 3rem auto;
